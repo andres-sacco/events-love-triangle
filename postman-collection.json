@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "0e999752-13cd-48a8-b07a-1201c1a50647",
+		"name": "OpenAPI definition",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "578119"
+	},
+	"item": [
+		{
+			"name": "reservation",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "get Reservation By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservation/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservation",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>"
+										}
+									]
+								},
+								"description": "Get the information about one reservation"
+							},
+							"response": [
+								{
+									"name": "Return the information of one reservation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"passengers\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    }\n  ],\n  \"id\": \"<long>\",\n  \"itinerary\": {\n    \"segment\": [\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      }\n    ],\n    \"price\": {\n      \"totalPrice\": \"<number>\",\n      \"totalTax\": \"<number>\",\n      \"basePrice\": \"<number>\"\n    }\n  }\n}"
+								},
+								{
+									"name": "Reservation not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"description\": \"<string>\",\n  \"reasons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"name": "Something bad happens to obtain th reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reservation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reservation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"description\": \"<string>\",\n  \"reasons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get Reservations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reservation",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservation"
+							],
+							"query": [
+								{
+									"key": "resevationDate",
+									"value": "2024-01-01",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "CONFIRMED",
+									"disabled": true
+								},
+								{
+									"key": "pageActual",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get the information of all the reservations"
+					},
+					"response": [
+						{
+							"name": "Return the information of all the reservations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						},
+						{
+							"name": "Something bad happens to obtain th reservations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reservation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"description\": \"<string>\",\n  \"reasons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"passengers\": [\n            {\n                \"firstName\": \"222222222222222222222222222222222222222222222222\",\n                \"lastName\": \"\",\n                \"documentNumber\": \"222\",\n                \"documentType\": \"333\",\n                \"birthday\": \"1985-01-01\"\n            }\n        ],\n        \"itinerary\": {\n            \"id\": 2,\n            \"segment\": [\n                {\n                    \"origin\": \"BUE\",\n                    \"destination\": \"MIA\",\n                    \"departure\": \"2023-12-31\",\n                    \"arrival\": \"2024-01-01\",\n                    \"carrier\": \"AA\"\n                }\n            ],\n            \"price\": {\n                \"totalPrice\": 30.00,\n                \"totalTax\": 20.00,\n                \"basePrice\": 10.00\n            }\n        },\n        \"creationDate\": \"1985-01-01\"\n    }",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reservation",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservation"
+							]
+						},
+						"description": "Create one reservation"
+					},
+					"response": [
+						{
+							"name": "Return the created reservation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"passengers\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    }\n  ],\n  \"id\": \"<long>\",\n  \"itinerary\": {\n    \"segment\": [\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      }\n    ],\n    \"price\": {\n      \"totalPrice\": \"<number>\",\n      \"totalTax\": \"<number>\",\n      \"basePrice\": \"<number>\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reservation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"passengers\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    }\n  ],\n  \"id\": \"<long>\",\n  \"itinerary\": {\n    \"segment\": [\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      }\n    ],\n    \"price\": {\n      \"totalPrice\": \"<number>\",\n      \"totalTax\": \"<number>\",\n      \"basePrice\": \"<number>\"\n    }\n  }\n}"
+						},
+						{
+							"name": "Bad request of the information to persist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"passengers\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    }\n  ],\n  \"id\": \"<long>\",\n  \"itinerary\": {\n    \"segment\": [\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      }\n    ],\n    \"price\": {\n      \"totalPrice\": \"<number>\",\n      \"totalTax\": \"<number>\",\n      \"basePrice\": \"<number>\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reservation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"description\": \"<string>\",\n  \"reasons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"name": "Something bad happens to obtain th reservations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"passengers\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"documentNumber\": \"<string>\",\n      \"documentType\": \"<string>\",\n      \"birthday\": \"<date>\"\n    }\n  ],\n  \"id\": \"<long>\",\n  \"itinerary\": {\n    \"segment\": [\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"destination\": \"<string>\",\n        \"departure\": \"<string>\",\n        \"arrival\": \"<string>\",\n        \"carrier\": \"<string>\"\n      }\n    ],\n    \"price\": {\n      \"totalPrice\": \"<number>\",\n      \"totalTax\": \"<number>\",\n      \"basePrice\": \"<number>\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reservation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"description\": \"<string>\",\n  \"reasons\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/api"
+		}
+	]
+}

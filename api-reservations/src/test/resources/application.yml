@@ -1,0 +1,50 @@
+management:
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    min-response-size: 2048
+    mime-types: application/json,application/xml,text/html,text/plain
+
+  servlet:
+    context-path: /api
+
+info:
+  application:
+    groupId: '@project.groupId@'
+    artifactId: '@project.artifactId@'
+    version: '@project.version@'
+
+http-connector:
+  hosts:
+    api-catalog:
+      host: localhost
+      port: 6070
+      endpoints:
+        get-city:
+          url: "/api/flights/catalog/city/{code}"
+          readTimeout: 1000
+          writeTimeout: 1000
+          connectionTimeout: 2000
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: root
+      password: muppet
+      database: flights_reservation
