@@ -1,1 +1,0 @@
-Action=ReceiveMessage&VisibilityTimeout=10&MaxNumberOfMessages=1
