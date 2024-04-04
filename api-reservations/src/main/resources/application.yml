@@ -4,7 +4,7 @@ management:
       enabled: true
   endpoint:
     health:
-      show-details: always
+      show-details: never
 
   endpoints:
     web:
@@ -46,3 +46,18 @@ spring:
   data:
     mongodb:
       uri: mongodb://root:muppet@localhost/flights_reservation?authSource=admin
+
+  cloud:
+    aws:
+      endpoint: http://localhost:4566
+      region:
+        static: us-east-1
+      credentials:
+        access-key: test
+        secret-key: test
+events:
+  queues:
+    payments-in-process: http://localhost:4566/000000000000/payments_in_process.fifo
+    payments-confirmed: http://localhost:4566/000000000000/payments_confirmed.fifo
+  topics:
+    reservation-confirmed: arn:aws:sns:us-east-1:000000000000:reservation_confirmed.fifo

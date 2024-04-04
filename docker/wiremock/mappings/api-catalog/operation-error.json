@@ -1,0 +1,55 @@
+{
+  "mappings": [
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/flights/catalog/city/LAS",
+        "headers": {
+          "Content-Type": {
+            "equalTo": "application/json"
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPattern": "/api/flights/catalog/city/[0-9]{3}"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/flights/catalog/city/EZE",
+        "headers": {
+          "Content-Type": {
+            "equalTo": "application/json"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 3000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "api-catalog/response/response-EZE.json"
+      }
+    }
+  ]
+}

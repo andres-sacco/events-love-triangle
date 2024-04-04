@@ -8,6 +8,7 @@ import com.twa.reservations.enums.APIError;
 import com.twa.reservations.exception.EdteamException;
 import com.twa.reservations.dto.ReservationDTO;
 import com.twa.reservations.model.Reservation;
+import com.twa.reservations.model.Status;
 import com.twa.reservations.repository.ReservationRepository;
 import com.twa.reservations.repository.query.ReservationQuery;
 import jakarta.validation.*;
@@ -71,26 +72,14 @@ public class ReservationService {
         return conversionService.convert(result, ReservationDTO.class);
     }
 
-    public ReservationDTO update(String id, ReservationDTO reservation) {
-        if (!repository.existsById(id)) {
-            LOGGER.debug("Not exist reservation with the id {}", id);
-            throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
-        }
-        checkCity(reservation);
-
-        Reservation transformed = conversionService.convert(reservation, Reservation.class);
-        validateEntity(transformed);
-        Reservation result = repository.save(Objects.requireNonNull(transformed));
-        return conversionService.convert(result, ReservationDTO.class);
-    }
-
-    public void delete(String id) {
-        if (!repository.existsById(id)) {
+    public void changeStatus(String id, Status status) {
+        Optional<Reservation> reservation = repository.findById(id);
+        if (reservation.isEmpty()) {
             LOGGER.debug("Not exist reservation with the id {}", id);
             throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
         }
 
-        repository.deleteById(id);
+        repository.updateStatusById(id, status);
     }
 
     private void checkCity(ReservationDTO reservationDTO) {

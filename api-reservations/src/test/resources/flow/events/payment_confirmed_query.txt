@@ -1,0 +1,1 @@
+Action=SendMessage&MessageBody=${reservation_id}&QueueUrl=http%3A%2F%2Flocalhost%3A4566%2F000000000000%2Fpayments_confirmed.fifo&MessageGroupId=group-id
