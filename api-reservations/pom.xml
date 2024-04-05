@@ -20,6 +20,9 @@
         <aws-java-sdk.version>1.12.82</aws-java-sdk.version>
         <spring-cloud-aws.version>3.0.4</spring-cloud-aws.version>
 
+        <karate.version>1.2.0</karate.version>
+        <testcontainers.version>1.19.7</testcontainers.version>
+
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <formatter-maven-plugin.version>2.23.0</formatter-maven-plugin.version>
@@ -111,6 +114,7 @@
             <groupId>io.awspring.cloud</groupId>
             <artifactId>spring-cloud-aws-starter-sqs</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -120,6 +124,9 @@
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
             </testResource>
         </testResources>
 
